@@ -1,0 +1,62 @@
+/* :root {
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-xxl: 1536px;
+
+  --text-base: 14px;
+  --text-color: rgba(231, 238, 238, 0.8);
+}
+
+label {
+  font-size: 16px;
+  display: inline-block;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --text-base: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --text-base: 18px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --text-base: 18px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+} */
+
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background-color: gray;
+
+  /* color: var(--text-color); */
+}
+
+/* * {
+  box-sizing: border-box;
+  font-size: var(--text-base);
+  font-family: sans-serif;
+  font-style: normal;
+} */
+
+#app-container {
+  height: 100%;
+}
+
+#render-container {
+  height: 800px;
+}

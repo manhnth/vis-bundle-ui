@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+.root {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.cardItemsHolder {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 6.7rem);
+  gap: 12px;
+  margin-top: 0.75rem;
+}
+
+.cardItem {
+  width: 4.5rem;
+  height: 8.5rem;
+  border: 2px solid;
+  border-radius: 4px;
+  min-height: fit-content;
+}
+
+.imgBox {
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem;
+}
+
+.imgBox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cardItem {
+  border-color: rgba(231, 238, 238, 0.4);
+  color: rgba(231, 238, 238, 0.8);
+}
+
+.cardItem.active {
+  border-color: rgba(231, 238, 238, 0.8);
+}

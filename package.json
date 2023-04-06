@@ -1,0 +1,32 @@
+{
+  "name": "name-of-the-project",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Viscircle GmbH",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node ./build.js -w",
+    "export-json": "node ./deploy/index.js",
+    "build-bundle": "node ./deploy/esbuild.bundle.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@lrnzdms/local-server": "^0.1.6",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "css-tree": "^2.3.0",
+    "esbuild": "^0.15.18",
+    "esbuild-copy-static-files": "^0.1.0",
+    "esbuild-css-modules-plugin": "^2.6.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@viscircle-org/ui-config-common": "^0.0.1-test1",
+    "typescript-plugin-css-modules": "^2.8.0"
+  }
+}

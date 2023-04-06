@@ -1,0 +1,58 @@
+.root {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.root > * > * {
+  background-color: inherit;
+}
+
+.main {
+  border: 1px solid rgba(231, 238, 238, 0.8);
+  border-left-width: 0px;
+  border-right-width: 0px;
+  margin-top: 0.75rem;
+}
+
+.main.active {
+  border-bottom: none;
+}
+
+.header {
+  padding: 0.75rem 0.2rem;
+  color: rgba(231, 238, 238, 0.8);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.active .content {
+  padding-top: 1.25rem;
+  /* overflow-y: scroll; */
+  /* scrollbar-width: none; */
+}
+
+/* ::-webkit-scrollbar {
+  width: 0;
+} */
+
+.toggleBtn > svg {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.2s;
+}
+
+.active .toggleBtn > svg {
+  transform: rotate(180deg);
+}

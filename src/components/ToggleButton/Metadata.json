@@ -1,0 +1,12 @@
+{
+  "metadata":{
+    "description":"Toggle Button",
+    "type" : "Element"
+  },
+  "stylingMode":[
+    {
+      "name":"buttonStyle",
+      "restriction":["dimension", "textSize", "textColor"]
+    }
+  ]
+}

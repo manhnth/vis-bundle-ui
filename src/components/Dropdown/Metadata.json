@@ -1,0 +1,20 @@
+{
+  "metadata":{
+    "description":"Dropdown Element",
+    "type" : "Select"
+  },
+  "stylingMode":[
+    {
+      "name":"labelStyle",
+      "restriction":["textSize", "textColor"]
+    },
+    {
+      "name":"dropdownStyle",
+      "restriction":["textSize", "textColor", "dimension"]
+    },
+    {
+      "name":"holderStyle",
+      "restriction":["spacing"]
+    }
+  ]
+}

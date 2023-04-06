@@ -1,0 +1,38 @@
+.root {
+  display: inline-block;
+  min-width: fit-content;
+  background-color: transparent;
+  border: 1px rgba(231, 238, 238, 0.8) solid;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(231, 238, 238, 0.8);
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 0.875rem;
+  width: 8rem;
+  height: 2.5rem;
+
+  margin-bottom: 5px;
+}
+
+@media (max-width: 1024px) {
+  .root {
+    width: 6rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .root {
+    width: 7rem;
+    height: 2.25rem;
+  }
+}
+
+/* .button:active {
+  border: 1px rgba(231, 238, 238, 1) solid;
+  color: rgba(231, 238, 238, 1);
+} */

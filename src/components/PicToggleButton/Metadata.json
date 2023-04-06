@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "description": "Pic Toggle Button",
+    "type": "Element"
+  },
+  "stylingMode": [
+    {
+      "name": "buttonStyle",
+      "restriction": [
+        "dimension",
+        "textSize",
+        "textColor"
+      ]
+    }
+  ]
+}

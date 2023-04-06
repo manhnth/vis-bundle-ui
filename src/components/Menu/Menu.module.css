@@ -1,0 +1,200 @@
+.root {
+  --btn-menu-size: 2.25rem;
+  --btn-menu-color: white;
+  --btn-menu-bg: gray;
+
+  --menu-hor-height: 35%;
+  --menu-ver-width: 30vw;
+  --menu-ver-max-width: 96vw;
+  --menu-bg: rgba(36, 52, 65, 0.1);
+
+  --transition-duration: 0.75s;
+  --transition-timing-function: ease;
+
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* MENU */
+
+.menuHor {
+  height: var(--menu-hor-height);
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: bottom var(--transition-duration)
+    var(--transition-timing-function);
+  pointer-events: auto;
+  display: inline-flex;
+  background-color: var(--menu-bg);
+}
+
+.menuHor:before {
+  /* fix css filter on the parent break child positioning */
+
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(12px);
+  z-index: -100;
+}
+
+.menuHor::-webkit-scrollbar {
+  display: none;
+}
+
+.menuHor.hidden {
+  bottom: calc(-1 * var(--menu-hor-height) + var(--btn-menu-size) + 1rem);
+}
+
+.menuVer {
+  height: 100%;
+  width: var(--menu-ver-width);
+  position: absolute;
+  top: 0;
+  pointer-events: auto;
+  background-color: var(--menu-bg);
+  backdrop-filter: blur(12px);
+}
+
+.menuVer.left {
+  left: 0;
+  transition: left var(--transition-duration) var(--transition-timing-function);
+}
+
+.menuVer.left.hidden {
+  left: calc(-1 * var(--menu-ver-width) + 2 * var(--btn-menu-size));
+}
+
+.menuVer.right {
+  right: 0;
+  transition: right var(--transition-duration) var(--transition-timing-function);
+}
+
+.menuVer.right.hidden {
+  right: calc(-1 * var(--menu-ver-width) + 2 * var(--btn-menu-size));
+}
+
+@media (max-width: 640px) {
+  .menuVer,
+  .menuBtnVerRight {
+    width: var(--menu-ver-max-width);
+  }
+
+  .menuVer.left.hidden {
+    left: calc(-1 * var(--menu-ver-max-width) + 2 * var(--btn-menu-size));
+  }
+  .menuVer.right.hidden {
+    right: calc(-1 * var(--menu-ver-max-width) + 2 * var(--btn-menu-size));
+  }
+}
+
+/* Content Holder */
+
+.specialHolder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.menu {
+  padding: 0.7rem;
+}
+
+.specialHolderHori {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: calc(100% - 1.5 * var(--btn-menu-size));
+  justify-content: space-between;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.specialHolderHori::-webkit-scrollbar {
+  display: none;
+}
+
+.menuItemHolderWrapper {
+  width: 100%;
+  height: auto;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.menuItemHolderWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.menuItemsHolder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.menuButtonHolder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25;
+}
+
+/* Toggle Button */
+
+.menuBtn {
+  display: flex;
+  height: var(--btn-menu-size);
+  width: var(--btn-menu-size);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--btn-menu-bg);
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: auto;
+  position: fixed;
+}
+
+.menuBtn img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.menuBtnHor {
+  position: fixed;
+  left: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.menuBtnVerLeft {
+  bottom: 0.5rem;
+  right: 0.88rem;
+}
+
+.menuBtnVerRight {
+  bottom: 0.5rem;
+  left: 0.5rem;
+}

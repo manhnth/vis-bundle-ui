@@ -1,0 +1,32 @@
+.dropdown {
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+.dropdownItem,
+.dropdown {
+  font-size: 18px;
+}
+
+label {
+  color: rgba(231, 238, 238, 0.8);
+}
+
+@media (min-width: 1024px) {
+  .dropdown,
+  .dropdownItem {
+    font-size: 16px;
+  }
+}
+
+.dropdownHolder {
+  width: 100%;
+}
+
+.dropdownLabel {
+  display: inline-block;
+
+  margin-bottom: 6px;
+}

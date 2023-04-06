@@ -1,0 +1,21 @@
+{
+  "metadata":{
+    "description":"Selection with name button",
+    "type" : "Select"
+  },
+  "stylingMode":[
+    {
+      "name":"labelStyle",
+      "restriction":["textSize", "textColor"]
+    },
+    
+    {
+      "name":"itemStyle",
+      "restriction":["textSize", "textColor", "border", "spacing"]
+    },
+    {
+      "name":"holderStyle",
+      "restriction":["spacing"]
+    }
+  ]
+}

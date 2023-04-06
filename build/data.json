@@ -1,0 +1,1043 @@
+{
+  "name": "Starter Bundle Test",
+  "version": "1.0.0",
+  "patchnote": "",
+  "components": [
+    {
+      "name": "Button",
+      "description": "",
+      "metadata": {
+        "description": "",
+        "type": "Element"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "name",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "Button"
+            }
+          },
+          {
+            "name": "onClick",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "buttonStyle",
+            "restriction": [
+              "dimension",
+              "textSize",
+              "textColor"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dropdown",
+      "description": "Dropdown Element",
+      "metadata": {
+        "description": "Dropdown Element",
+        "type": "Select"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "label",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "label"
+            }
+          },
+          {
+            "name": "hideLabel",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "selectionObject",
+            "type": {
+              "type": "SelectionWrap",
+              "typeParams": [
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "name",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "name",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "value": {
+              "type": "default",
+              "value": null
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "labelStyle",
+            "restriction": [
+              "textSize",
+              "textColor"
+            ]
+          },
+          {
+            "name": "dropdownStyle",
+            "restriction": [
+              "textSize",
+              "textColor",
+              "dimension"
+            ]
+          },
+          {
+            "name": "holderStyle",
+            "restriction": [
+              "spacing"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "PicButton",
+      "description": "",
+      "metadata": {
+        "description": "",
+        "type": "Element"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "img",
+            "type": {
+              "type": "Image"
+            },
+            "value": {
+              "type": "default",
+              "value": ""
+            }
+          },
+          {
+            "name": "onClick",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "buttonStyle",
+            "restriction": [
+              "dimension",
+              "textSize",
+              "textColor"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Menu",
+      "description": "Basic menu component. Floating on top.",
+      "metadata": {
+        "description": "Basic menu component. Floating on top.",
+        "type": "Overlay Container"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "hiddenAtStart",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "hideContentWhenClose",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "hideMenuButton",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "openButtonImage",
+            "type": {
+              "type": "Image"
+            },
+            "value": {
+              "type": "default",
+              "value": ""
+            }
+          },
+          {
+            "name": "closeButtonImage",
+            "type": {
+              "type": "Image"
+            },
+            "value": {
+              "type": "default",
+              "value": ""
+            }
+          },
+          {
+            "name": "toggleOn",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          },
+          {
+            "name": "toggleOff",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          },
+          {
+            "name": "variants",
+            "type": {
+              "type": "TSUnionType",
+              "types": [
+                {
+                  "type": "StringLiteral",
+                  "value": "vertical-left"
+                },
+                {
+                  "type": "StringLiteral",
+                  "value": "vertical-right"
+                },
+                {
+                  "type": "StringLiteral",
+                  "value": "horizontal"
+                }
+              ]
+            },
+            "value": {
+              "type": "default",
+              "value": {
+                "type": "StringLiteral",
+                "value": "vertical-left"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "content",
+            "type": "container",
+            "children": []
+          }
+        ],
+        "hooks": [
+          {
+            "name": "close",
+            "parameter": []
+          },
+          {
+            "name": "open",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "menuStyle",
+            "restriction": [
+              "backgroundColor",
+              "dimension"
+            ]
+          },
+          {
+            "name": "menuHiddenStyle",
+            "restriction": [
+              "placement"
+            ]
+          },
+          {
+            "name": "contentHolderStyle",
+            "restriction": [
+              "dimension"
+            ]
+          },
+          {
+            "name": "buttonStyle",
+            "restriction": [
+              "dimension"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "SelectButton",
+      "description": "Selection with name button",
+      "metadata": {
+        "description": "Selection with name button",
+        "type": "Select"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "label",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "label"
+            }
+          },
+          {
+            "name": "hideLabel",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "selectionObject",
+            "type": {
+              "type": "SelectionWrap",
+              "typeParams": [
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "name",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "name",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "value": {
+              "type": "default",
+              "value": null
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "labelStyle",
+            "restriction": [
+              "textSize",
+              "textColor"
+            ]
+          },
+          {
+            "name": "itemStyle",
+            "restriction": [
+              "textSize",
+              "textColor",
+              "border",
+              "spacing"
+            ]
+          },
+          {
+            "name": "holderStyle",
+            "restriction": [
+              "spacing"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "SelectCard",
+      "description": "Selection with picture",
+      "metadata": {
+        "description": "Selection with picture",
+        "type": "Select"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "label",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "label"
+            }
+          },
+          {
+            "name": "hideLabel",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "selectionObject",
+            "type": {
+              "type": "SelectionWrap",
+              "typeParams": [
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "img",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    },
+                    {
+                      "name": "caption",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "img",
+                      "type": {
+                        "type": "Image"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    },
+                    {
+                      "name": "caption",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "value": {
+              "type": "default",
+              "value": null
+            }
+          },
+          {
+            "name": "customCardDisplay",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSTypeLiteral",
+                "members": [
+                  {
+                    "name": "name",
+                    "type": {
+                      "type": "TSStringKeyword"
+                    },
+                    "value": {
+                      "type": "default",
+                      "value": ""
+                    }
+                  },
+                  {
+                    "name": "caption",
+                    "type": {
+                      "type": "TSStringKeyword"
+                    },
+                    "value": {
+                      "type": "default",
+                      "value": ""
+                    }
+                  },
+                  {
+                    "name": "image",
+                    "type": {
+                      "type": "Image"
+                    },
+                    "value": {
+                      "type": "default",
+                      "value": ""
+                    }
+                  }
+                ]
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "labelStyle",
+            "restriction": [
+              "textSize",
+              "textColor"
+            ]
+          },
+          {
+            "name": "itemStyle",
+            "restriction": [
+              "dimension",
+              "spacing"
+            ]
+          },
+          {
+            "name": "holderStyle",
+            "restriction": [
+              "spacing"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "PicToggleButton",
+      "description": "Pic Toggle Button",
+      "metadata": {
+        "description": "Pic Toggle Button",
+        "type": "Element"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "offImg",
+            "type": {
+              "type": "Image"
+            },
+            "value": {
+              "type": "default",
+              "value": ""
+            }
+          },
+          {
+            "name": "onImg",
+            "type": {
+              "type": "Image"
+            },
+            "value": {
+              "type": "default",
+              "value": ""
+            }
+          },
+          {
+            "name": "turnON",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          },
+          {
+            "name": "turnOFF",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "buttonStyle",
+            "restriction": [
+              "dimension",
+              "textSize",
+              "textColor"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "ToggleButton",
+      "description": "Toggle Button",
+      "metadata": {
+        "description": "Toggle Button",
+        "type": "Element"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "offText",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "Off"
+            }
+          },
+          {
+            "name": "onText",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "On"
+            }
+          },
+          {
+            "name": "turnON",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          },
+          {
+            "name": "turnOFF",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSFunctionType",
+                "members": []
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "buttonStyle",
+            "restriction": [
+              "dimension",
+              "textSize",
+              "textColor"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "SelectPicture",
+      "description": "Selection with picture",
+      "metadata": {
+        "description": "Selection with picture",
+        "type": "Select"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "label",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "label"
+            }
+          },
+          {
+            "name": "hideLabel",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": false
+            }
+          },
+          {
+            "name": "selectionObject",
+            "type": {
+              "type": "SelectionWrap",
+              "typeParams": [
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "img",
+                      "type": {
+                        "type": "TSStringKeyword"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "TSTypeLiteral",
+                  "members": [
+                    {
+                      "name": "img",
+                      "type": {
+                        "type": "Image"
+                      },
+                      "value": {
+                        "type": "default",
+                        "value": ""
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "value": {
+              "type": "default",
+              "value": null
+            }
+          },
+          {
+            "name": "customPictureDisplay",
+            "type": {
+              "type": "TSArrayType",
+              "elementType": {
+                "type": "TSTypeLiteral",
+                "members": [
+                  {
+                    "name": "name",
+                    "type": {
+                      "type": "TSStringKeyword"
+                    },
+                    "value": {
+                      "type": "default",
+                      "value": ""
+                    }
+                  },
+                  {
+                    "name": "image",
+                    "type": {
+                      "type": "Image"
+                    },
+                    "value": {
+                      "type": "default",
+                      "value": ""
+                    }
+                  }
+                ]
+              }
+            },
+            "value": {
+              "type": "default",
+              "value": []
+            }
+          }
+        ],
+        "children": [],
+        "hooks": [
+          {
+            "name": "hide",
+            "parameter": []
+          },
+          {
+            "name": "show",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "labelStyle",
+            "restriction": [
+              "textSize",
+              "textColor"
+            ]
+          },
+          {
+            "name": "itemStyle",
+            "restriction": [
+              "dimension",
+              "spacing"
+            ]
+          },
+          {
+            "name": "holderStyle",
+            "restriction": [
+              "spacing"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Submenu",
+      "description": "",
+      "metadata": {
+        "description": "",
+        "type": "Sub Container"
+      },
+      "componentCode": {
+        "props": [
+          {
+            "name": "openAtStart",
+            "type": {
+              "type": "TSBooleanKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": true
+            }
+          },
+          {
+            "name": "title",
+            "type": {
+              "type": "TSStringKeyword"
+            },
+            "value": {
+              "type": "default",
+              "value": "Title"
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "content",
+            "type": "container",
+            "children": []
+          }
+        ],
+        "hooks": [
+          {
+            "name": "close",
+            "parameter": []
+          },
+          {
+            "name": "open",
+            "parameter": []
+          }
+        ],
+        "containerArray": [],
+        "classCollection": [
+          {
+            "name": "titleStyle",
+            "restriction": []
+          },
+          {
+            "name": "headerStyle",
+            "restriction": []
+          },
+          {
+            "name": "mainStyle",
+            "restriction": []
+          },
+          {
+            "name": "contentStyle",
+            "restriction": []
+          }
+        ]
+      }
+    }
+  ]
+}
