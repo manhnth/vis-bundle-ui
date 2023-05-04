@@ -1,0 +1,117 @@
+.menuWrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.menuMain {
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 220px;
+  padding: 12px 24px;
+  transform: translate(100%, 0%);
+  transition: transform 500ms ease-in-out, visibility 500ms ease-in-out;
+  will-change: transform, visibility;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.menuMain.active {
+  transform: translate(0%, 0%);
+  visibility: visible;
+}
+
+.menuMainClose {
+  display: flex;
+  justify-content: end;
+}
+
+.menuMainCloseBtn {
+  color: white;
+  cursor: pointer;
+}
+
+.menuMainContentHolder {
+}
+
+@media screen and (orientation: landscape) {
+}
+.menuMainOpenBtn {
+  top: 50%;
+  left: initial;
+  right: 0;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.menuMainOpenBtn {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+  text-align: center;
+  transform: translateX(-50%) rotate(-90deg);
+  width: 40px;
+  cursor: pointer;
+
+  pointer-events: auto;
+}
+
+.menuMainOpenBtnArrow1,
+.menuMainOpenBtnArrow2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: 8px;
+  text-align: center;
+  width: 14px;
+  position: absolute;
+  bottom: 0;
+}
+
+@keyframes arrowsMoveUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-17px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+.menuMainOpenBtnArrow1 {
+  animation: arrowsMoveUp 2s infinite;
+  opacity: 1;
+}
+
+.menuMainOpenBtnArrow2 {
+  animation: arrowsMoveUp 2s infinite;
+  animation-delay: 0s;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.menuMainOpenBtn.hidden {
+  visibility: hidden;
+}

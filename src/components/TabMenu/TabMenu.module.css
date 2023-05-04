@@ -1,0 +1,70 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabMenuHeader {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.tabMenuHeader > * {
+  flex-grow: 1;
+}
+
+.tabMenuHeaderItem {
+  height: fit-content;
+  min-width: fit-content;
+  padding: 0.2rem 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgba(231, 238, 238, 0.8);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+
+  transition: border 250ms ease-in-out, box-shadow 250ms ease-in-out,
+    opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  will-change: border, box-shadow, opacity, transform;
+}
+
+.tabMenuHeaderItemActive {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(236, 236, 236);
+  border-right: 1px rgba(231, 238, 238, 0.8) solid;
+  flex: 1;
+  cursor: none;
+  border: 1px solid #a9e3ff;
+  box-shadow: 0 0 5px #4cc7f4, inset 0 0 5px #4cc7f4;
+  opacity: 1;
+}
+
+.tabMenuContent {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  height: fit-content;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

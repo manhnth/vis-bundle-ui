@@ -1,38 +1,36 @@
 .root {
-  display: inline-block;
   min-width: fit-content;
-  background-color: transparent;
-  border: 1px rgba(231, 238, 238, 0.8) solid;
-  border-radius: 10px;
-  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-bottom: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgba(231, 238, 238, 0.8);
-  font-family: sans-serif;
-  font-style: normal;
-  font-size: 0.875rem;
-  width: 8rem;
-  height: 2.5rem;
+  background-color: transparent;
+  border: 1px rgba(231, 238, 238, 0.8) solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
 
-  margin-bottom: 5px;
+  transition: border 250ms ease-in-out, box-shadow 250ms ease-in-out,
+    opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  will-change: border, box-shadow, opacity, transform;
 }
 
-@media (max-width: 1024px) {
-  .root {
-    width: 6rem;
-    height: 2rem;
-  }
+.root:hover {
+  border: 1px solid #a9e3ff;
+  box-shadow: 0 0 5px #4cc7f4, inset 0 0 5px #4cc7f4;
+  opacity: 1;
 }
 
-@media (max-width: 1280px) {
-  .root {
-    width: 7rem;
-    height: 2.25rem;
-  }
+.buttonImage {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  overflow: hidden;
 }
 
-/* .button:active {
-  border: 1px rgba(231, 238, 238, 1) solid;
-  color: rgba(231, 238, 238, 1);
-} */
+.buttonImage > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ClassZone, Image } from '@viscircle-org/ui-config-common';
 import styles from './Menu.module.css';
 import clsx from '../../utils/clsx';
+import baseStyles from '../../styles/Base.module.css';
 
 interface Props {
   id: number;
@@ -14,9 +15,12 @@ interface Props {
   closeButtonImage: Image;
   toggleOn: (() => void)[];
   toggleOff: (() => void)[];
+  baseStyle: ClassZone;
+  menuOverlayStyle: ClassZone;
   menuStyle: ClassZone;
   menuHiddenStyle: ClassZone;
   contentHolderStyle: ClassZone;
+  menuItemsHolderStyle: ClassZone;
   buttonStyle: ClassZone;
   variants: 'vertical-left' | 'vertical-right' | 'horizontal';
 }
@@ -97,18 +101,14 @@ export class Menu extends React.Component<Props, State> {
       <React.Fragment>
         <div
           id={this.props.id + '-element'}
-          className={clsx(
-            styles.menu,
-            {
-              [styles.menuHor]: this.props.variants === 'horizontal',
-              [styles.menuVer]: this.props.variants !== 'horizontal',
-              [styles.left]: this.props.variants === 'vertical-left',
-              [styles.right]: this.props.variants === 'vertical-right',
-              [styles.hidden]: this.state.hidden,
-            },
-            this.props.menuStyle,
-            this.props.menuHiddenStyle
-          )}
+          className={clsx(styles.menu, this.props.menuStyle, {
+            [styles.menuHor]: this.props.variants === 'horizontal',
+            [styles.menuVer]: this.props.variants !== 'horizontal',
+            [styles.left]: this.props.variants === 'vertical-left',
+            [styles.right]: this.props.variants === 'vertical-right',
+            [styles.hidden]: this.state.hidden,
+            [this.props.menuHiddenStyle]: this.state.hidden,
+          })}
         >
           <div
             key="main-component"
@@ -119,12 +119,16 @@ export class Menu extends React.Component<Props, State> {
             )}
           >
             <div
-              className={styles.menuItemsHolder}
-              style={this.state.hideContent ? { display: 'none' } : {}}
+              className={
+                styles.menuItemsHolder + ' ' + this.props.menuItemsHolderStyle
+              }
+              // style={this.state.hideContent ? { display: 'none' } : {}}
             >
               {this.props.content}
             </div>
-            {!this.props.hideMenuButton && (
+          </div>
+          {!this.props.hideMenuButton && (
+            <div className={styles.menuBtnContainer}>
               <span
                 data-id={this.props.id + '-buttonStyle'}
                 className={clsx(
@@ -162,14 +166,29 @@ export class Menu extends React.Component<Props, State> {
                   />
                 )}
               </span>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </React.Fragment>
     );
   }
 
   render() {
-    return <div className={clsx(styles.root)}>{this.renderTheme()}</div>;
+    // if (this.state.hidden) return '';
+    return (
+      <div
+        className={
+          styles.root +
+          ' ' +
+          baseStyles.base +
+          ' ' +
+          this.props.baseStyle +
+          ' ' +
+          this.props.menuOverlayStyle
+        }
+      >
+        {this.renderTheme()}
+      </div>
+    );
   }
 }

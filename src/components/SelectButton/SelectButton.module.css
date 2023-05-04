@@ -1,7 +1,12 @@
 .root {
   width: 100%;
+}
 
-  margin-top: 1.25rem;
+.selectButtonLabel {
+  color: rgba(231, 238, 238, 0.8);
+  display: inline-block;
+
+  margin-bottom: 6px;
 }
 
 .selectButtonItemHolder {
@@ -12,8 +17,6 @@
   gap: 8px;
   align-items: center;
   align-content: start;
-
-  margin-top: 12px;
 }
 
 .selectButtonItem {
@@ -26,34 +29,12 @@
   background-color: transparent;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-family: sans-serif;
-  font-style: normal;
-  font-size: 1rem;
-  width: 8rem;
-  height: 2.5rem;
-}
 
-@media (max-width: 1024px) {
-  .selectButtonItem {
-    width: 6rem;
-    height: 2rem;
-  }
-}
-
-@media (max-width: 1280px) {
-  .selectButtonItem {
-    width: 7rem;
-    height: 2rem;
-  }
+  padding: 0.5rem 1rem;
 }
 
 .selectButtonItemActive {
-  border-color: rgba(231, 238, 238, 0.8);
   color: rgba(231, 238, 238, 0.8);
-}
-
-.selectButtonLabel {
-  color: rgba(231, 238, 238, 0.8);
-  font-family: sans-serif;
-  font-style: normal;
+  border: 2px solid #a9e3ff;
+  box-shadow: 0 0 5px #4cc7f4, inset 0 0 5px #4cc7f4;
 }

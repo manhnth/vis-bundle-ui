@@ -1,0 +1,16 @@
+{
+    "metadata":{
+      "description":"Loading screen",
+      "type" : "Element"
+    },
+    "stylingMode":[
+      {
+        "name":"screenStyle",
+        "restriction":["backgroundColor"]
+      },
+      {
+        "name":"textStyle",
+        "restriction":["textSize", "textColor"]
+      }
+    ]
+  }

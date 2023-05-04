@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,600&display=swap');
+
+.base * {
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+  font-size: 1rem;
+  letter-spacing: 0.020625rem;
+  line-height: 1.25rem;
+}
+
+label,
+span {
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+}
+
+.headlineBase {
+  font-size: 1rem;
+  letter-spacing: 0.020625rem;
+  line-height: 1.25rem;
+}
+
+.headlineOne {
+  font-size: 1.5rem;
+  letter-spacing: 0.020625rem;
+  line-height: 1.75rem;
+}
+
+.headlineTwo {
+  font-size: 1.25rem;
+  letter-spacing: 0.01875rem;
+  line-height: 1.5rem;
+}
+
+.headlineThree {
+  font-size: 1.125rem;
+  letter-spacing: -0.0075;
+  line-height: 1.25rem;
+}
+
+.subHeadline {
+  font-size: 0.875rem;
+  letter-spacing: 0.01875rem;
+  line-height: 1.125rem;
+}
+
+.captionOne {
+  font-size: 0.8125rem;
+  letter-spacing: 0.00125rem;
+  line-height: 1rem;
+}
+
+.captionTwo {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  line-height: 0.875rem;
+}
+
+.captionThree {
+  font-size: 0.5625rem;
+  letter-spacing: 0;
+  line-height: 0.75rem;
+}
+
+::-webkit-scrollbar {
+  width: none;
+}

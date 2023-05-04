@@ -8,14 +8,14 @@ interface Props {
   app: any;
   offImg: Image;
   onImg: Image;
+  on: boolean;
   turnON: (() => void)[];
   turnOFF: (() => void)[];
   buttonStyle: ClassZone;
 }
 
 let defaultProps = {
-  offText: 'Off',
-  onText: 'On',
+  on: false,
 };
 
 interface State {
@@ -28,7 +28,7 @@ export class PicToggleButton extends React.Component<Props, State> {
     super(props);
     this.state = {
       hidden: false,
-      on: true,
+      on: this.props.on,
     };
   }
 
@@ -80,13 +80,17 @@ export class PicToggleButton extends React.Component<Props, State> {
       return '';
     }
     return (
-      <span
+      <div
         id={this.props.id + '-element'}
-        className={clsx(styles.root, this.props.buttonStyle)}
+        className={clsx(
+          styles.root,
+          { [styles.onState]: this.state.on },
+          this.props.buttonStyle
+        )}
         onClick={this.toggle.bind(this)}
       >
         <img src={this.state.on ? this.props.onImg : this.props.offImg} />
-      </span>
+      </div>
     );
   }
 }

@@ -1,27 +1,4 @@
-.dropdown {
-  width: 100%;
-  height: 2.25rem;
-  border-radius: 5px;
-  outline: none;
-}
-
-.dropdownItem,
-.dropdown {
-  font-size: 18px;
-}
-
-label {
-  color: rgba(231, 238, 238, 0.8);
-}
-
-@media (min-width: 1024px) {
-  .dropdown,
-  .dropdownItem {
-    font-size: 16px;
-  }
-}
-
-.dropdownHolder {
+.root {
   width: 100%;
 }
 
@@ -29,4 +6,17 @@ label {
   display: inline-block;
 
   margin-bottom: 6px;
+}
+
+.dropdownLabel,
+.dropdown {
+  color: rgba(231, 238, 238, 0.8);
+}
+
+.dropdown {
+  width: 100%;
+  height: 2.25rem;
+  border-radius: 5px;
+  outline: none;
+  color: gray;
 }

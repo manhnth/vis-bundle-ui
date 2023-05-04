@@ -1,36 +1,32 @@
 import * as React from 'react';
-import { ClassZone } from '@viscircle-org/ui-config-common';
-import styles from './Submenu.module.css';
+import { ClassZone, Image } from '@viscircle-org/ui-config-common';
+import styles from './SubMenu.module.css';
+import baseStyles from '../../styles/Base.module.css';
 import clsx from '../../utils/clsx';
 
 interface Props {
   id: number;
   app: any;
-  openAtStart: boolean;
-  content: React.ReactNode[];
-  title: string;
-  titleStyle: ClassZone;
-  headerStyle: ClassZone;
-  mainStyle: ClassZone;
-  contentStyle: ClassZone;
+  submenu: { name: string; content: React.ReactNode[] }[];
+  contentHolderStyle: ClassZone;
+  navigationHeaderStyle: ClassZone;
+  navigationItemStyle: ClassZone;
+  navigationItemActiveStyle: ClassZone;
 }
 
-let defaultProps = {
-  openAtStart: true,
-  title: 'Title',
-  hiddenAtStart: false,
-  hideContentWhenClose: false,
-};
+let defaultProps = {};
 
 interface State {
-  hiddenContent: boolean;
+  currentSub: number;
+  hidden: boolean;
 }
 
 export class Submenu extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      hiddenContent: this.props.openAtStart ? false : this.props.openAtStart,
+      currentSub: 0,
+      hidden: false,
     };
   }
 
@@ -47,67 +43,74 @@ export class Submenu extends React.Component<Props, State> {
   private hooks = [
     {
       id: this.props.id,
-      name: 'close',
+      name: 'hide',
       func: () => {
-        this.setState({ hiddenContent: true });
+        this.setState({ hidden: true });
       },
     },
     {
       id: this.props.id,
-      name: 'open',
+      name: 'show',
       func: () => {
-        this.setState({ hiddenContent: false });
+        this.setState({ hidden: false });
       },
     },
   ];
 
-  private click() {
-    this.setState({ hiddenContent: !this.state.hiddenContent });
+  getContent() {
+    if (this.props.submenu.length <= 0) {
+      return '';
+    } else {
+      if (this.props.submenu[this.state.currentSub]) {
+        return this.props.submenu[this.state.currentSub].content;
+      }
+      return '';
+    }
+  }
+
+  changeMenu(index: number) {
+    this.setState({ currentSub: index });
   }
 
   render() {
+    if (this.state.hidden) {
+      return '';
+    }
     return (
-      <React.Fragment>
-        <div id={this.props.id + '-element'} className={clsx(styles.root)}>
-          <div
-            data-id={this.props.id + '-mainStyle'}
-            className={clsx(
-              styles.main,
-              { [styles.active]: this.state.hiddenContent === false },
-              this.props.mainStyle
-            )}
-          >
-            <div
-              data-id={this.props.id + '-headerStyle'}
-              className={clsx(styles.header, this.props.headerStyle)}
-            >
+      <div id={this.props.id + '-element'} className={styles.root}>
+        <div
+          data-id={this.props.id + '-navigationHeaderStyle'}
+          className={clsx(styles.header, this.props.navigationHeaderStyle)}
+        >
+          {this.props.submenu.map((e, i) => {
+            return (
               <div
-                data-id={this.props.id + '-titleStyle'}
-                className={clsx(styles.title, this.props.titleStyle)}
+                data-id={this.props.id + '-navigationItemStyle'}
+                className={clsx(
+                  {
+                    [styles.headerItemActive]: this.state.currentSub === i,
+                  },
+                  styles.headerItem,
+                  baseStyles.headlineBase,
+                  this.props.navigationItemActiveStyle,
+                  this.props.navigationItemStyle
+                )}
+                onClick={() => {
+                  this.changeMenu(i);
+                }}
               >
-                {this.props.title}
-                <span
-                  className={clsx(styles.toggleBtn)}
-                  onClick={(e) => this.click()}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 96 960 960"
-                  >
-                    <path d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z" />
-                  </svg>
-                </span>
+                {e.name}
               </div>
-            </div>
-            <div
-              data-id={this.props.id + '-contentStyle'}
-              className={clsx(styles.content, this.props.contentStyle)}
-            >
-              {this.props.content}
-            </div>
-          </div>
+            );
+          })}
         </div>
-      </React.Fragment>
+        <div
+          data-id={this.props.id + '-contentHolderStyle'}
+          className={clsx(styles.content, this.props.contentHolderStyle)}
+        >
+          {this.getContent()}
+        </div>
+      </div>
     );
   }
 }

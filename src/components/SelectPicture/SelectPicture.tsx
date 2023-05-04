@@ -13,9 +13,12 @@ interface Props {
   label: string;
   hideLabel: boolean;
   selectionObject: SelectionWrap<{ img: string }, { img: Image }>;
-  labelStyle: ClassZone;
-  itemStyle: ClassZone;
+  onClick: (() => void)[];
   holderStyle: ClassZone;
+  labelStyle: ClassZone;
+  holderItemsStyle: ClassZone;
+  itemStyle: ClassZone;
+  activeItemStyle: ClassZone;
   customPictureDisplay: { name: string; image: Image }[];
 }
 
@@ -63,6 +66,12 @@ export class SelectPicture extends React.Component<Props, State> {
     },
   ];
 
+  private click() {
+    this.props.onClick.forEach((e) => {
+      e();
+    });
+  }
+
   render() {
     if (this.state.hidden) {
       return '';
@@ -80,7 +89,12 @@ export class SelectPicture extends React.Component<Props, State> {
             {this.props.label}
           </label>
         )}
-        <div className={styles.selectPictureItemHolder}>
+        <div
+          className={clsx(
+            styles.selectPictureItemHolder,
+            this.props.holderItemsStyle
+          )}
+        >
           {this.props.selectionObject?.selection?.list
             ? this.props.selectionObject.selection.list.map((e, i) => {
                 const customImg = this.props.customPictureDisplay?.find(
@@ -95,6 +109,10 @@ export class SelectPicture extends React.Component<Props, State> {
                 return (
                   <div
                     data-id={this.props.id + '-itemStyle'}
+                    onClick={() => {
+                      this.props.selectionObject.selection.onChange(i);
+                      this.click.bind(this);
+                    }}
                     className={clsx(
                       styles.selectPictureItem,
                       {
@@ -102,13 +120,13 @@ export class SelectPicture extends React.Component<Props, State> {
                           this.props.selectionObject.selection.currentIndex ===
                           i,
                       },
-                      this.props.itemStyle
-                    )}
-                    onClick={() => {
-                      if (this.props.selectionObject) {
-                        this.props.selectionObject.selection.onChange(i);
+                      this.props.itemStyle,
+                      {
+                        [this.props.activeItemStyle]:
+                          this.props.selectionObject.selection.currentIndex ===
+                          i,
                       }
-                    }}
+                    )}
                   >
                     <img src={img} />
                   </div>

@@ -16,6 +16,7 @@ interface Props {
     { img: string; caption: string },
     { img: Image; caption: string }
   >;
+  onClick: (() => void)[];
   labelStyle: ClassZone;
   itemStyle: ClassZone;
   holderStyle: ClassZone;
@@ -66,6 +67,12 @@ export class SelectCard extends React.Component<Props, State> {
     },
   ];
 
+  private click() {
+    this.props.onClick.forEach((e) => {
+      e();
+    });
+  }
+
   render() {
     if (this.state.hidden) {
       return '';
@@ -87,25 +94,18 @@ export class SelectCard extends React.Component<Props, State> {
           {this.props.selectionObject?.selection?.list
             ? this.props.selectionObject.selection.list.map((e, i) => {
                 const customImg = this.props.customCardDisplay?.find((item) => {
-                  item.name === e[this.props.selectionObject.displayValue.img];
+                  return (
+                    item.name === e[this.props.selectionObject.displayValue.img]
+                  );
                 });
 
                 let img =
                   customImg?.image ||
                   e[this.props.selectionObject.displayValue.img];
 
-                const customCaption = this.props.customCardDisplay?.find(
-                  (item) => {
-                    item.name ===
-                      e[this.props.selectionObject.displayValue.img];
-                  }
-                );
-
                 let caption =
-                  customCaption?.caption ||
+                  customImg?.caption ||
                   e[this.props.selectionObject.displayValue.caption];
-
-                console.log('caption', caption);
 
                 return (
                   <div
@@ -120,9 +120,8 @@ export class SelectCard extends React.Component<Props, State> {
                       this.props.itemStyle
                     )}
                     onClick={() => {
-                      if (this.props.selectionObject) {
-                        this.props.selectionObject.selection.onChange(i);
-                      }
+                      this.props.selectionObject.selection.onChange(i);
+                      this.click.bind(this);
                     }}
                   >
                     <div className={clsx(styles.imgBox)}>

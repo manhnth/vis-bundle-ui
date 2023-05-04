@@ -1,0 +1,12 @@
+{
+  "metadata":{
+    "description":"Basic container with flex-box",
+    "type" : "Sub Container"
+  },
+  "stylingMode":[
+    {
+      "name":"containerStyle",
+      "restriction":["dimension", "alignment", "spacing"]
+    }
+  ]
+}

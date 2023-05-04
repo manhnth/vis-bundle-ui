@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "description": "Basic menu component.",
+    "type": "Sub Container"
+  },
+  "stylingMode": [
+    {
+      "name": "menuStyle",
+      "restriction": [
+        "backgroundColor",
+        "dimension"
+      ]
+    },
+    {
+      "name": "menuHiddenStyle",
+      "restriction": [
+        "placement"
+      ]
+    },
+    {
+      "name": "contentHolderStyle",
+      "restriction": [
+        "dimension"
+      ]
+    },
+    {
+      "name": "buttonStyle",
+      "restriction": [
+        "dimension"
+      ]
+    }
+  ]
+}

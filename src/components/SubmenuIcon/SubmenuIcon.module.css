@@ -1,0 +1,107 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.root * {
+  box-sizing: border-box;
+}
+
+.root.left > *:nth-child(2) {
+  align-self: self-start;
+}
+.root.right > *:nth-child(2) {
+  align-self: self-start;
+}
+
+.root.right {
+  flex-direction: row-reverse;
+}
+
+.root.top {
+  flex-direction: column;
+}
+
+.root.bottom {
+  flex-direction: column-reverse;
+}
+
+.bottom .nav,
+.top.nav {
+}
+
+.nav {
+  width: 3.5rem;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.top > .nav,
+.bottom > .nav {
+  width: 100%;
+  flex-direction: row;
+}
+
+.navItemHolder {
+  height: 3.5rem;
+  width: 3.5rem;
+  min-height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgba(231, 238, 238, 0.6);
+  inline-size: 56px;
+  font-style: normal;
+  overflow: hidden;
+}
+
+.navItemHolder.active {
+  color: rgb(236, 236, 236);
+}
+
+.navItemLabel {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.navImgHolder {
+  width: 1.75rem;
+  height: 1.75rem;
+
+  opacity: 0.7;
+}
+
+.navImgHolder > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navItemHolder.active .navImgHolder {
+  opacity: 1;
+}
+
+.top > .content,
+.bottom > .content {
+  margin-top: 8px;
+}
+
+.content {
+  /* display: flex;
+  flex-wrap: wrap; */
+  box-sizing: border-box;
+  flex-grow: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  height: 100%;
+}
+
+.left .content,
+.right .content {
+}
+::-webkit-scrollbar {
+  display: none;
+}

@@ -4,7 +4,7 @@
   --btn-menu-bg: gray;
 
   --menu-hor-height: 35%;
-  --menu-ver-width: 30vw;
+  --menu-ver-width: 35vw;
   --menu-ver-max-width: 96vw;
   --menu-bg: rgba(36, 52, 65, 0.1);
 
@@ -19,7 +19,32 @@
   pointer-events: none;
 }
 
+.root * {
+  box-sizing: border-box;
+}
+
+/* body {
+  background-color: red;
+} */
+
 /* MENU */
+
+.menu {
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.menu > *:nth-child(1) {
+  flex-grow: 1;
+}
+
+/* menu button always in the end of menu */
+.menu > *:nth-child(2) {
+  /* align-self: end; */
+}
 
 .menuHor {
   height: var(--menu-hor-height);
@@ -74,6 +99,11 @@
   left: calc(-1 * var(--menu-ver-width) + 2 * var(--btn-menu-size));
 }
 
+.hidden > * > .menuItemsHolder {
+  /* display: none !important; */
+  visibility: hidden;
+}
+
 .menuVer.right {
   right: 0;
   transition: right var(--transition-duration) var(--transition-timing-function);
@@ -83,7 +113,7 @@
   right: calc(-1 * var(--menu-ver-width) + 2 * var(--btn-menu-size));
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .menuVer,
   .menuBtnVerRight {
     width: var(--menu-ver-max-width);
@@ -108,10 +138,6 @@
   height: 100%;
   position: relative;
   justify-content: space-between;
-}
-
-.menu {
-  padding: 0.7rem;
 }
 
 .specialHolderHori {
@@ -142,10 +168,10 @@
 
 .menuItemsHolder {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
-  cursor: pointer;
   box-sizing: border-box;
 }
 
@@ -159,6 +185,10 @@
 }
 
 /* Toggle Button */
+
+.menuBtnContainer {
+  height: calc(var(--btn-menu-size) + 1rem);
+}
 
 .menuBtn {
   display: flex;

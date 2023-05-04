@@ -1,18 +1,24 @@
-import { ClassZone } from '@viscircle-org/ui-config-common';
+import { ClassZone, Image } from '@viscircle-org/ui-config-common';
 import * as React from 'react';
-import styles from './Button.module.css';
+import s from './Button.module.css';
 import clsx from '../../utils/clsx';
 
 interface Props {
   id: number;
   app: any;
+  image: Image;
   name: string;
+  isActive: boolean;
   onClick: (() => void)[];
   buttonStyle: ClassZone;
+  buttonActiveStyle: ClassZone;
+  buttonImageStyle: ClassZone;
+  buttonLabelStyle: ClassZone;
 }
 
 let defaultProps = {
   name: 'Button',
+  isActive: false,
 };
 
 interface State {
@@ -65,13 +71,29 @@ export class Button extends React.Component<Props, State> {
       return '';
     }
     return (
-      <span
+      <div
         id={this.props.id + '-element'}
-        className={clsx(styles.root, this.props.buttonStyle)}
+        className={clsx(s.root, this.props.buttonStyle, {
+          [s.buttonActive]: this.props.isActive,
+          [this.props.buttonActiveStyle]: this.props.isActive,
+        })}
         onClick={this.click.bind(this)}
       >
-        <a>{this.props.name}</a>
-      </span>
+        {this.props.image && (
+          <div
+            data-id={this.props.id + '-buttonImageStyle'}
+            className={clsx(s.buttonImage, this.props.buttonImageStyle)}
+          >
+            <img src={this.props.image} alt="button_image" />
+          </div>
+        )}
+        <span
+          data-id={this.props.id + '-buttonLabelStyle'}
+          className={clsx(s.buttonLabel, this.props.buttonLabelStyle)}
+        >
+          {this.props.name}
+        </span>
+      </div>
     );
   }
 }

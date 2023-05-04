@@ -1,6 +1,7 @@
 import { ClassZone, SelectionWrap } from '@viscircle-org/ui-config-common';
 import * as React from 'react';
 import styles from './Dropdown.module.css';
+import baseStyles from '../../styles/Base.module.css';
 import clsx from '../../utils/clsx';
 
 interface Props {
@@ -35,7 +36,22 @@ export class Dropdown extends React.Component<Props, State> {
 
   componentWillUnmount() {}
 
-  private hooks = [];
+  private hooks = [
+    {
+      id: this.props.id,
+      name: 'close',
+      func: () => {
+        this.setState({ hidden: true });
+      },
+    },
+    {
+      id: this.props.id,
+      name: 'open',
+      func: () => {
+        this.setState({ hidden: false });
+      },
+    },
+  ];
 
   render() {
     if (this.state.hidden) {
@@ -45,7 +61,7 @@ export class Dropdown extends React.Component<Props, State> {
       <div
         id={this.props.id + '-element'}
         data-id={this.props.id + '-holderStyle'}
-        className={clsx(styles.dropdownHolder, this.props.holderStyle)}
+        className={clsx(styles.root, this.props.holderStyle)}
       >
         {this.props.hideLabel ? (
           ''
@@ -62,7 +78,11 @@ export class Dropdown extends React.Component<Props, State> {
           value={
             'a' || this.props.selectionObject?.selection?.currentIndex || 0
           }
-          className={clsx(styles.dropdown, this.props.dropdownStyle)}
+          className={[
+            styles.dropdown,
+            baseStyles.subHeadline,
+            this.props.dropdownStyle,
+          ].join(' ')}
           onChange={(e) => {
             if (
               this.props.selectionObject &&

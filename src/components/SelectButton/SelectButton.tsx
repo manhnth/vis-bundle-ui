@@ -9,6 +9,7 @@ interface Props {
   label: string;
   hideLabel: boolean;
   selectionObject: SelectionWrap<{ name: string }, { name: string }>;
+  onClick: (() => void)[];
   labelStyle: ClassZone;
   itemStyle: ClassZone;
   holderStyle: ClassZone;
@@ -58,6 +59,12 @@ export class SelectButton extends React.Component<Props, State> {
     },
   ];
 
+  private click() {
+    this.props.onClick.forEach((e) => {
+      e();
+    });
+  }
+
   render() {
     if (this.state.hidden) {
       return '';
@@ -93,9 +100,8 @@ export class SelectButton extends React.Component<Props, State> {
                       this.props.itemStyle
                     )}
                     onClick={() => {
-                      if (this.props.selectionObject) {
-                        this.props.selectionObject.selection.onChange(i);
-                      }
+                      this.props.selectionObject.selection.onChange(i);
+                      this.click.bind(this);
                     }}
                   >
                     {e[this.props.selectionObject.displayValue.name]}

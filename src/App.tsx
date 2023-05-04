@@ -7,8 +7,16 @@ import { PicButton } from './components/PicButton/PicButton';
 import { Dropdown } from './components/Dropdown/Dropdown';
 import { SelectPicture } from './components/SelectPicture/SelectPicture';
 import { SelectButton } from './components/SelectButton/SelectButton';
-import { Submenu } from './components/Submenu/Submenu';
+import { Accordion } from './components/Accordion/Accordion';
 import { SelectCard } from './components/SelectCard/SelectCard';
+import { Submenu } from './components/Submenu/Submenu';
+import { SubmenuIcon } from './components/SubmenuIcon/SubmenuIcon';
+import { SpecialMenu } from './components/SpecialMenu/SpecialMenu';
+import { TabMenu } from './components/TabMenu/TabMenu';
+import { RangeSlider } from './components/RangeSlider/RangeSlider';
+import { Carousel } from './components/Carousel/Carousel';
+import { ImageDisplay } from './components/ImageDisplay/ImageDisplay';
+import { LoadingScreen } from './components/LoadingScreen/LoadingScreen';
 
 export class App extends React.Component {
   constructor(props) {
@@ -63,249 +71,32 @@ export class App extends React.Component {
           variants="vertical-left"
           hideMenuButton={false}
           content={[
+            <LoadingScreen
+              id={0}
+              app={this}
+              screenStyle={''}
+              textStyle={''}
+              loadingText={['loading', 'heyyy']}
+              loadIntervalMS={2000}
+              active={true}
+              img={'hellooo'}
+            />,
             <Button
-              id={1}
+              id={0}
               app={this}
-              name="Button"
+              image={''}
+              name={'button'}
+              isActive={false}
               onClick={[]}
-              buttonStyle=""
-            />,
-            <ToggleButton
-              id={1}
-              app={this}
-              offText="off"
-              onText="on"
-              turnOFF={[]}
-              turnON={[]}
-              buttonStyle=""
-            />,
-            <PicToggleButton
-              id={1}
-              app={this}
-              turnOFF={[]}
-              turnON={[]}
-              offImg="http://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
-              onImg="https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg"
-              buttonStyle=""
-            />,
-            <PicButton
-              id={1}
-              app={this}
-              img="https://hips.hearstapps.com/hmg-prod/images/close-up-of-cat-wearing-sunglasses-while-sitting-royalty-free-image-1571755145.jpg"
-              onClick={[]}
-              buttonStyle=""
-            />,
-            <Dropdown
-              label="dropdown label"
-              hideLabel={false}
-              dropdownStyle=""
-              holderStyle=""
-              labelStyle=""
-              selectionObject={{
-                displayValue: {
-                  name: 'displayValue',
-                },
-                selection: {
-                  list: [{ displayValue: 'item1' }, { displayValue: 'item2' }],
-                  onChange: (index: number) => {},
-                  func: '',
-                  currentIndex: 0,
-                },
-              }}
-              app={this}
-              id={12}
-            />,
-            <SelectPicture
-              app={this}
-              customPictureDisplay={[]}
-              hideLabel={false}
-              holderStyle=""
-              itemStyle=""
-              label="select pic"
-              labelStyle=""
-              id={12}
-              selectionObject={{
-                displayValue: { img: 'image' },
-                selection: {
-                  currentIndex: 0,
-                  onChange(index) {},
-                  func: 'function',
-                  list: [
-                    {
-                      name: 'firstItem',
-                      image:
-                        'http://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg',
-                    },
-                    {
-                      name: 'secondItem',
-                      image:
-                        'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg',
-                    },
-                    {
-                      name: '3rdItem',
-                      image:
-                        'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg',
-                    },
-                  ],
-                },
-              }}
-            />,
-            <SelectButton
-              app={this}
-              id={669}
-              hideLabel={false}
-              holderStyle=""
-              itemStyle=""
-              label="select button"
-              labelStyle=""
-              selectionObject={{
-                displayValue: { name: 'name' },
-                selection: {
-                  currentIndex: 0,
-                  func: '',
-                  onChange(index) {},
-                  list: [
-                    {
-                      name: 'firstBtn',
-                    },
-                    {
-                      name: 'secondBtn',
-                    },
-                    {
-                      name: '3rdBtn',
-                    },
-                  ],
-                },
-              }}
-            />,
-            <SelectCard
-              app={this}
-              id={66}
-              hideLabel={false}
-              holderStyle=""
-              itemStyle=""
-              labelStyle=""
-              label="slectcard"
-              selectionObject={{
-                displayValue: { img: 'image', caption: '' },
-                selection: {
-                  currentIndex: 0,
-                  func: '',
-                  onChange(index) {},
-                  list: [
-                    {
-                      caption: 'item1',
-                      image:
-                        'https://www.werbezeichen.de/_next/image?url=https%3A%2F%2Fs3.eu-central-1.amazonaws.com%2Fwerbezeichen-product-import%2Fproduct_images%2Fjx%2F53-00-51_Lisboa.jpg&w=640&q=75',
-                    },
-                    {
-                      caption: 'iterm2',
-                      image:
-                        'https://www.werbezeichen.de/_next/image?url=https%3A%2F%2Fs3.eu-central-1.amazonaws.com%2Fwerbezeichen-product-import%2Fproduct_images%2Fjx%2F53-00-51_Lisboa.jpg&w=640&q=75',
-                    },
-                  ],
-                },
-              }}
-              customCardDisplay={[
-                {
-                  name: 'image',
-                  caption: 'custom',
-                  image: 'rjhtijojijoj',
-                },
-              ]}
-            />,
-            <Submenu
-              app={this}
-              id={1}
-              content={
-                [
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                  // <Button
-                  //   id={1}
-                  //   app={this}
-                  //   name="Button"
-                  //   onClick={[]}
-                  //   buttonStyle=""
-                  // />,
-                ]
-              }
-              headerStyle=""
-              mainStyle=""
-              openAtStart={true}
-              titleStyle=""
-              title="this is header"
-              contentStyle=""
+              buttonStyle={''}
+              buttonActiveStyle={''}
+              buttonImageStyle={''}
+              buttonLabelStyle={''}
             />,
           ]}
+          baseStyle={''}
+          menuOverlayStyle={''}
+          menuItemsHolderStyle={''}
         ></Menu>
       </div>
     );

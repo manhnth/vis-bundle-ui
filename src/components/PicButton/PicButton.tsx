@@ -1,18 +1,33 @@
 import { ClassZone, Image } from '@viscircle-org/ui-config-common';
 import * as React from 'react';
-import styles from './PicButton.module.css';
+import s from './PicButton.module.css';
 import clsx from '../../utils/clsx';
 
 interface Props {
   id: number;
   app: any;
-  img: Image;
+  isNotActive: boolean;
+  hideAtStart: boolean;
+  image: Image;
+  useAnimation: boolean;
+  // optionImage: Image;
+  variants:
+    | 'animation-to-left'
+    | 'animation-to-right'
+    | 'animation-to-up'
+    | 'animation-to-down';
   onClick: (() => void)[];
   buttonStyle: ClassZone;
+  buttonActiveStyle: ClassZone;
+  imagesHolderStyle: ClassZone;
+  imageBoxStyle: ClassZone;
+  imgStyle: ClassZone;
 }
 
 let defaultProps = {
-  name: 'Button',
+  useAnimation: false,
+  hideAtStart: false,
+  isNotActive: true,
 };
 
 interface State {
@@ -23,7 +38,7 @@ export class PicButton extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: false,
+      hidden: this.props.hideAtStart ? true : false,
     };
   }
 
@@ -65,13 +80,49 @@ export class PicButton extends React.Component<Props, State> {
       return '';
     }
     return (
-      <span
+      <div
         id={this.props.id + '-element'}
-        className={clsx(styles.root, this.props.buttonStyle)}
+        className={clsx(
+          s.root,
+          {
+            [s.animation]: this.props.useAnimation,
+            [s.toUp]: this.props.variants === 'animation-to-up',
+            [s.toLeft]: this.props.variants === 'animation-to-left',
+            [s.toRight]: this.props.variants === 'animation-to-right',
+            [s.toDown]: this.props.variants === 'animation-to-down',
+            [s.active]: !this.props.isNotActive,
+            [this.props.buttonActiveStyle]: !this.props.isNotActive,
+          },
+          this.props.buttonStyle
+        )}
         onClick={this.click.bind(this)}
       >
-        <img src={this.props.img} alt="Pic_Button" />
-      </span>
+        <div className={s.buttonsBox + ' ' + this.props.imagesHolderStyle}>
+          <div
+            className={s.btnImgBox + ' ' + s.first + this.props.imageBoxStyle}
+          >
+            <img
+              className={s.img + '' + this.props.imgStyle}
+              src={this.props.image}
+              alt="Pic_Button_One"
+            />
+          </div>
+          <div
+            className={s.btnImgBox + ' ' + s.second + this.props.imageBoxStyle}
+          >
+            <img
+              className={s.img + ' ' + this.props.imgStyle}
+              src={
+                // this.props.optionImage
+                //   ? this.props.optionImage
+                //   :
+                this.props.image
+              }
+              alt="Pic_Button_Option"
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }
